@@ -5,6 +5,12 @@
       "PYTHON_VERSION": "3.10"
     }
   },
+  "builds": [
+    {
+      "src": "BH/server.py",
+      "use": "@vercel/python"
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
