@@ -11,6 +11,7 @@ app = Flask(__name__, static_folder='client', template_folder='client')
 def home():
     return render_template('app.html')
 
+
 @app.route('/get_location_names')
 def get_location_names():
     response = jsonify({
@@ -35,6 +36,7 @@ def predict_home_price():
 if __name__ == "__main__":
     print("Starting Python Flask Server For Home Price Prediction...")
     util.load_saved_artifacts()
-    port = int(os.environ.get("PORT", 5000))  # Dynamic port for Vercel
+    port = int(os.environ.get("PORT", 5000))  # Use dynamic port from Vercel
     app.run(host='0.0.0.0', port=port, debug=True)
+
 
