@@ -24,19 +24,17 @@ def get_location_names():
     return __locations
 
 def load_saved_artifacts():
-    print("loading saved artifacts...start")
-    global __data_columns
-    global __locations
-    global __model
-
-    with open(r"E:\Real Estate Prediction\BH\server\artifacts\columns.json", 'r') as f:
-        __data_columns = json.load(f)['data_columns']
-        __locations = __data_columns[3:]
-
-    with open(r"E:\Real Estate Prediction\BH\server\artifacts\Real_Estate_Prediction.pickle", 'rb') as f:
-        __model = pickle.load(f)
-
-    print("loading saved artifacts...done")
+    print("Loading artifacts...")
+    try:
+        with open("server/artifacts/columns.json", 'r') as f:
+            __data_columns = json.load(f)['data_columns']
+            __locations = __data_columns[3:]
+            print("Columns and locations loaded successfully.")
+        with open("server/artifacts/Real_Estate_Prediction.pickle", 'rb') as f:
+            __model = pickle.load(f)
+            print("Model loaded successfully.")
+    except FileNotFoundError as e:
+        print(f"Error loading artifacts: {e}")
 
 
 if __name__ == '__main__':
