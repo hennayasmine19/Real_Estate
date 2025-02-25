@@ -1,16 +1,12 @@
 import os
-print("Current Working Directory:", os.getcwd())
-import util as util
 from flask import Flask, request, jsonify, render_template
-
-
+import util as util
 
 app = Flask(__name__, static_folder='client', template_folder='client')
 
 @app.route('/')
 def home():
     return render_template('app.html')
-
 
 @app.route('/get_location_names')
 def get_location_names():
@@ -38,5 +34,3 @@ if __name__ == "__main__":
     util.load_saved_artifacts()
     port = int(os.environ.get("PORT", 5000))  # Use dynamic port from Vercel
     app.run(host='0.0.0.0', port=port, debug=True)
-
-
