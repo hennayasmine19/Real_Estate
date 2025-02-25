@@ -1,6 +1,6 @@
 import os
 print("Current Working Directory:", os.getcwd())
-import util
+import util as util
 from flask import Flask, request, jsonify, render_template
 
 
