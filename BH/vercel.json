@@ -1,12 +1,10 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "server.py",
-      "use": "@vercel/python",
-      "config": { "runtimeVersion": "3.10" }
+  "build": {
+    "env": {
+      "PYTHON_VERSION": "3.10"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/(.*)",
@@ -14,3 +12,4 @@
     }
   ]
 }
+
